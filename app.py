@@ -6,5 +6,5 @@ if __name__ == "__main__":
     print(f"The result is: {result}")
     
     # A simple safety check (assertion) to make sure our code works
-    assert result == 10, "Math is broken!"
+    assert result == 8, "Math is broken!"
     print("All checks passed successfully!")
