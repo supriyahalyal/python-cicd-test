@@ -1,5 +1,5 @@
 name: Python code verification pipeline
-on: push
+on: [push, workflow_dispatch]
 jobs:
   my-first-job:
     runs-on: ubuntu-latest
