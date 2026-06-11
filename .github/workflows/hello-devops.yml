@@ -21,7 +21,7 @@ jobs:
       - name: execute app script
         run: python app.py
       - name: Save test report
-        uses: actions/upload_artifact@v4
+        uses: actions/upload-artifact@v4
         with:
           name: test-execution-report
           path: report.txt
