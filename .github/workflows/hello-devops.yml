@@ -35,4 +35,4 @@ jobs:
     needs: my-first-job
     steps:
       - name: Deploy package
-        run: echo "The previous job said -> ${{ needs.my-first-job.outputs.status_msg }}"
+        run: echo "The previous job said -> ${{ needs.my-first-job.outputs.status_message }}"
