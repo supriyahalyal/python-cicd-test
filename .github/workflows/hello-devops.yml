@@ -10,7 +10,7 @@ jobs:
   my-first-job:
     runs-on: ubuntu-latest
     outputs:
-      status_message: "${{ steps.set-msg.outputs.CUSTOM_MESSAGE}}"
+      status_message: "${{ steps.set_msg.outputs.CUSTOM_MESSAGE}}"
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
