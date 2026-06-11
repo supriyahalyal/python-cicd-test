@@ -1,8 +1,16 @@
 name: Python code verification pipeline
-on: [push, workflow_dispatch]
+on: 
+  push:
+    branches: ["main"]
+
+env:
+  PIPELINE_USER: "Supriya"
+
 jobs:
   my-first-job:
     runs-on: ubuntu-latest
+    outputs:
+      status_message: "${{ steps.set-msg.outputs.CUSTOM_MESSAGE}}"
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -12,10 +20,19 @@ jobs:
           python-version: 3.11
       - name: execute app script
         run: python app.py
+      - name: Save test report
+        uses: actions/upload_artifact@v4
+        with:
+          name: test-execution-report
+          path: report.txt
+
+      - name: Generate outputs message
+        id: set_msg
+        run: echo "CUSTOM_MESSAGE=Pipeline validation checks passed clean!" >> $GITHUB_OUTPUT
 
   deploy-package:
     runs-on: ubuntu-latest
     needs: my-first-job
     steps:
       - name: Deploy package
-        run: echo "Deploying package..."
+        run: echo "The previous job said -> ${{ needs.run-checks.outputs.status_msg }}"
