@@ -2,6 +2,7 @@ name: Python code verification pipeline
 on: 
   push:
     branches: ["main"]
+  workflow_call:
 
 env:
   PIPELINE_USER: "Supriya"
