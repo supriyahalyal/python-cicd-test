@@ -1,0 +1,12 @@
+name: Company Master Orchestrator
+
+# This workflow triggers when you push code, just like normal
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  # Instead of writing steps here, we just call our other file!
+  trigger-shared-logic:
+    # We point directly to the path of your reusable workflow file
+    uses: ./.github/workflows/hello-devops.yml
