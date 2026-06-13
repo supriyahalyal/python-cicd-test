@@ -37,8 +37,8 @@ jobs:
         env:
           SECRET-TOKEN: ${{secrets.SUPER_SECRET_API_KEY}}
         run: |
-          echo: "Attempting to connecting to production API"
-          echo: "Secret token is: $SECRET-TOKEN"
+          echo "Attempting to connecting to production API"
+          echo "Secret token is: $SECRET-TOKEN"
 
       - name: Run special admin step
         if: env.PIPELINE_USER == 'Supriya'
