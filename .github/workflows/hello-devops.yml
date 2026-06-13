@@ -9,6 +9,9 @@ env:
 jobs:
   my-first-job:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11"]
     outputs:
       status_message: "${{ steps.set_msg.outputs.CUSTOM_MESSAGE}}"
     steps:
@@ -17,13 +20,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.11
+          python-version: ${{ matrix.python-version }}
       - name: execute app script
         run: python app.py
       - name: Save test report
         uses: actions/upload-artifact@v4
         with:
-          name: test-execution-report
+          name: test-execution-report-${{ matrix.python-version }}
           path: report.txt
 
       - name: Generate outputs message
