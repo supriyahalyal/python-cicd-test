@@ -41,7 +41,7 @@ jobs:
           echo: "Secret token is: $SECRET-TOKEN"
 
       - name: Run special admin step
-        if: env.PIPELINE_USER == "Supriya"
+        if: env.PIPELINE_USER == 'Supriya'
         run:
           echo "Hello Admin ${{env.PIPELINE_USER}}! Running elevated pipeline tasks."
 
